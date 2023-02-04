@@ -1,4 +1,4 @@
-# MiniTools
+# TiniTools
 1. Texture Resizer : Resize a texture size that can be divided by 4 and can be compressed by Unity. 
 * It works like this: create a texture that is slightly larger than the original, then place the original over the newly created texture with no resize algorithm.
 
