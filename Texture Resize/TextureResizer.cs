@@ -3,7 +3,7 @@ using Unity.Collections;
 using UnityEditor;
 using UnityEngine;
 
-public class TextureResizer
+public class TextureResize
 {
 #if UNITY_EDITOR
         [MenuItem("Tools/Check Texture 4x4")]
