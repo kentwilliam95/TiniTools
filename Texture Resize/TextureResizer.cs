@@ -74,11 +74,11 @@ public class TextureResize
 
             if (leftOverHeight == 0 && leftOverWidth == 0)
                 return null;
-
+            
             var newWidth = leftOverWidth > 0 ? oldWidth + (divider - leftOverWidth) : oldWidth;
             var newHeight = leftOverHeight > 0 ? oldHeight + (divider - leftOverHeight) : oldHeight;
 
-            Texture2D newTexture = new Texture2D(newWidth, newHeight);
+            Texture2D newTexture = new Texture2D(newWidth, newHeight, TextureFormat.RGBA32, false);
 
             int paddingX = leftOverWidth / 2;
             int paddingY = leftOverHeight / 2;
@@ -86,8 +86,13 @@ public class TextureResize
             int xn = paddingX;
             int yn = paddingY;
 
-            NativeArray<Color32> newArr = new NativeArray<Color32>(newWidth * newHeight, Allocator.Temp, NativeArrayOptions.ClearMemory);
-            NativeArray<Color32> oldArr = oldTexture.GetRawTextureData<Color32>();
+            Color32[] newColor = newTexture.GetPixels32();
+            Color32[] oldColor = oldTexture.GetPixels32();
+
+            for (int i = 0; i < newColor.Length; i++)
+            {
+                newColor[i] = Color.clear;
+            }
 
             for (int yo = 0; yo < oldHeight; yo++)
             {
@@ -95,17 +100,17 @@ public class TextureResize
                 {
                     var newIndex = yn * newWidth + xn;
                     var oldIndex = yo * oldWidth + xo;
-                    newArr[newIndex] = oldArr[oldIndex];
+                    newColor[newIndex] = oldColor[oldIndex];
                     xn += 1;
                 }
                 xn = paddingX;
                 yn += 1;
             }
-        
-            newTexture.SetPixelData(newArr, 0);
+
+            newTexture.SetPixelData(newColor, 0);
             
-            newArr.Dispose();
-            oldArr.Dispose();
+            newColor = null;
+            oldColor = null;
             return newTexture;
         }
 #endif
