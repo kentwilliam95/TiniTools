@@ -16,9 +16,9 @@
 * Click sub menu "Resize Texture To Nearest 4x4"
 
 * Click Sub menu "Check Texture 4x4" to Check all texture
+* Disable read/write when done.
 
 # Limitation
-1. Texture Resizer:
-  - May contains white border if selected texture is .JPG
-  - Resize texture or sprite content may shifted
-  - Not good when the texture or sprite have fullscreen content 
+1. Texture Resize:
+  - May contains white/transparent border if selected texture is RGB. consider resize with photo editor, etc.
+  - Resized texture or sprite content may shift.
