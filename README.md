@@ -1,15 +1,16 @@
 # TiniTools
-1. Texture Resizer : Resize a texture size that can be divided by 4 and can be compressed by Unity. 
+1. Texture Resize : Resize a texture size that can be divided by 4 and can be compressed by Unity. 
 * It works like this: create a texture that is slightly larger than the original, then place the original over the newly created texture with no resize algorithm.
 
 # How To Install
-1. TextureResizer
+1. TextureResize
+* Get the script at assets/TextureResize
 * Put the script to your unity project
 * let unity compile
-* To access use the Tools open it at menu bar "Tools"
+* To use the Tools open it at menu bar "Tools"
 
 # How To Use
-1.  Texture Resizer
+1.  Texture Resize
 * Pick a texture that you want to resize
 * Allow read/write
 * Select "Tools" from menu bar

@@ -72,12 +72,15 @@ public class TextureResize
             var leftOverWidth = oldWidth % divider;
             var leftOverHeight = oldHeight % divider;
 
+            //Check if both width and height can be divided by 4 then return 
             if (leftOverHeight == 0 && leftOverWidth == 0)
                 return null;
-            
+
+            // Calculate new width and height
             var newWidth = leftOverWidth > 0 ? oldWidth + (divider - leftOverWidth) : oldWidth;
             var newHeight = leftOverHeight > 0 ? oldHeight + (divider - leftOverHeight) : oldHeight;
 
+            // Create texture bigger than old texture
             Texture2D newTexture = new Texture2D(newWidth, newHeight, TextureFormat.RGBA32, false);
 
             int paddingX = leftOverWidth / 2;
@@ -89,11 +92,13 @@ public class TextureResize
             Color32[] newColor = newTexture.GetPixels32();
             Color32[] oldColor = oldTexture.GetPixels32();
 
+            // make the color transparent
             for (int i = 0; i < newColor.Length; i++)
             {
                 newColor[i] = Color.clear;
             }
 
+            // put old texture to new texture
             for (int yo = 0; yo < oldHeight; yo++)
             {
                 for (int xo = 0; xo < oldWidth; xo++)
