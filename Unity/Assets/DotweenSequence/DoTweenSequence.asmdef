@@ -1,0 +1,16 @@
+{
+    "name": "DoTweenSequence",
+    "rootNamespace": "",
+    "references": [
+        "GUID:30ecf6b02bd1c410d80bb6625f7ed92a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
