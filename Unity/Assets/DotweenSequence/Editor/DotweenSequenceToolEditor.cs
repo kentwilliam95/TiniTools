@@ -60,7 +60,7 @@ public class DotweenSequenceToolEditor : Editor
 
     private void OnDisable()
     {
-        ResetTransform();
+        
     }
 
     private void ResetTransform()
@@ -74,7 +74,6 @@ public class DotweenSequenceToolEditor : Editor
     public override void OnInspectorGUI()
     {
         var tools = target as DotweenSequenceTools;
-        Debug.Log(GUI.enabled);
         HeadEditorGUI(tools);
 
         serializedObject.ApplyModifiedProperties();
@@ -98,9 +97,6 @@ public class DotweenSequenceToolEditor : Editor
             DOTweenEditorPreview.Stop();
         }
         GUILayout.EndHorizontal();
-
-        GUILayout.Space(25);
-        base.OnInspectorGUI();
     }
 
     public void HeadEditorGUI(DotweenSequenceTools instance)
